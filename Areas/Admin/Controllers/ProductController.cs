@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyBulky.DataAccess.Repository.IRepository;
 using MyBulky.Models;
 using MyBulky.Models.ViewModels;
+using MyBulky.Utility;
 
 namespace MyBulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork unitOfWork;

@@ -1,12 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyBulky.DataAccess.Data;
 using MyBulky.DataAccess.Repository.IRepository;
 using MyBulky.Models;
+using MyBulky.Utility;
 
 namespace MyBulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles =SD.Role_Admin)]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
